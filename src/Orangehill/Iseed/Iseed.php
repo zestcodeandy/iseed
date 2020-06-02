@@ -230,7 +230,7 @@ class Iseed
             $this->addNewLines($inserts);
             $this->addIndent($inserts, 2);
             $inserts .= sprintf(
-                "\App\('%s')->insert(%s);",
+                "\App\%s::insert(%s);",
                 $table,
                 $this->prettifyArray($chunk, $indexed)
             );
