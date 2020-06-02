@@ -14,7 +14,7 @@ class {{class}} extends Seeder
     {
         {{prerun_event}}
 //edit this
-        \DB::table('{{table}}')->delete();
+        {{table}}->truncate();
         {{insert_statements}}
 
         {{postrun_event}}
