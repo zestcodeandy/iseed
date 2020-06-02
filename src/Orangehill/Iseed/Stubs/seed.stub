@@ -13,10 +13,10 @@ class {{class}} extends Seeder
     public function run()
     {
         {{prerun_event}}
-
+//edit this
         \DB::table('{{table}}')->delete();
         {{insert_statements}}
-        
+
         {{postrun_event}}
     }
 }
