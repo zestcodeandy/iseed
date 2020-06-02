@@ -139,7 +139,7 @@ class Iseed
             $result = $result->select(array_diff($allColumns, $exclude));
         }
 
-        if($orderBy) {
+        if ($orderBy) {
             $result = $result->orderBy($orderBy, $direction);
         }
 
@@ -230,7 +230,7 @@ class Iseed
             $this->addNewLines($inserts);
             $this->addIndent($inserts, 2);
             $inserts .= sprintf(
-                "\DB::table('%s')->insert(%s);",
+                "\App\('%s')->insert(%s);",
                 $table,
                 $this->prettifyArray($chunk, $indexed)
             );
@@ -253,7 +253,9 @@ class Iseed
         }
 
         $stub = str_replace(
-            '{{prerun_event}}', $prerunEventInsert, $stub
+            '{{prerun_event}}',
+            $prerunEventInsert,
+            $stub
         );
 
         if (!is_null($table)) {
@@ -275,7 +277,9 @@ class Iseed
         }
 
         $stub = str_replace(
-            '{{postrun_event}}', $postrunEventInsert, $stub
+            '{{postrun_event}}',
+            $postrunEventInsert,
+            $stub
         );
 
         $stub = str_replace('{{insert_statements}}', $inserts, $stub);
@@ -330,7 +334,7 @@ class Iseed
                     $j++;
                 }
                 //check string open/end
-                else if ($lines[$i][$j] == '\'') {
+                elseif ($lines[$i][$j] == '\'') {
                     $inString = !$inString;
                 }
             }
